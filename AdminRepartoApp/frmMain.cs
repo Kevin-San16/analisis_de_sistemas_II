@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Form Hecho por Kevin Daniel Santos Castro || 0901-17-2994
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -30,7 +31,6 @@ namespace AdminRepartoApp
         {
             lblUsuarioIniciado.Text = usuarioCorreo;
             timerFechaHora.Start();
-            btnRoles.Enabled = permitirEditar;  // Habilitar o deshabilitar el botón según los permisos
             btnLogs.Visible = esAdministrador; // Mostrar el botón de logs solo para administradores
         }
 
@@ -55,26 +55,6 @@ namespace AdminRepartoApp
         {
             frmRegister registerForm = new frmRegister();
             registerForm.Show();
-        }
-
-        private void btnRoles_Click(object sender, EventArgs e)
-        {
-            // Pasar el ID del empleado al formulario de roles
-            frmRoles rolesForm = new frmRoles(idEmpleado);
-            rolesForm.Show();
-        }
-
-        private void btnActualizarDatosUsuarios_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmUpdate updateForm = new frmUpdate(idEmpleado); // Pasar el ID del empleado al formulario de actualización
-                updateForm.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al abrir el formulario de actualización: " + ex.Message);
-            }
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -168,5 +148,61 @@ namespace AdminRepartoApp
             }
         }
 
+        private void btnGestionPedidos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmGestionPedidos gestionPedidosForm = new frmGestionPedidos();
+                gestionPedidosForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el formulario de Gestión de Pedidos: " + ex.Message);
+            }
+        }
+
+        private void btnReportesPersonal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmReportesPersonal reportesPersonalForm = new frmReportesPersonal();
+                reportesPersonalForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el formulario de Gestión de Pedidos: " + ex.Message);
+            }
+        }
+
+        private void btnReportesBodegasTransportes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmReportesBodegasTransportes reportesBodegasTransportesForm = new frmReportesBodegasTransportes();
+                reportesBodegasTransportesForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el formulario de Reportes de Bodegas y Transportes: " + ex.Message);
+            }
+        }
+
+        private void btnBodegasTransportes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBodegasTransportes bodegasTransportesForm = new frmBodegasTransportes();
+                bodegasTransportesForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el formulario de Bodegas y Transportes: " + ex.Message);
+            }
+        }
+
+        private void btnPilotos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
